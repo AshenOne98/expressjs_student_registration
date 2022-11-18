@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <%- include('../partials/nav.ejs') %>
+
+    <form action="/students" method="POST" autocomplete="off">
+      <div>
+        <h2 class="title">Student Information</h2>
+      </div>
+      <div class="student">
+        <div class="create-stud content">
+          <label for="title">Name:</label>
+          <input type="text" id="studName" name="studName" required />
+
+          <label for="snippet">Matric Number:</label>
+          <input
+            type="text"
+            id="matricNum"
+            name="matricNum"
+            placeholder="CB12345"
+            required
+          />
+
+          <label for="snippet">Tel No:</label>
+          <input type="text" id="studTel" name="studTel" required />
+
+          <label for="snippet">Gender:</label>
+          <select name="studGender">
+            <option value="MALE">MALE</option>
+            <option value="FEMALE">FEMALE</option>
+          </select>
+
+          <label for="snippet">Class:</label>
+          <select name="studClass">
+            <option value="1 ILTIZAM">CLASS A</option>
+            <option value="1 IHSAN">CLASS B</option>
+            <option value="2 ILTIZAM">CLASS C</option>
+            <option value="2 IHSAN">CLASS D</option>
+          </select>
+        </div>
+
+        <div class="create-stud content">
+          <label for="title">Profle Picture:</label>
+          <input type="file" class="filepond" name="studPhoto" required />
+        </div>
+      </div>
+
+      <hr />
+      <div>
+        <h2 class="title">Parents Information</h2>
+        <div class="parents">
+          <div class="create-stud content">
+            <label for="title">Father's Name:</label>
+            <input type="text" id="fatherName" name="fatherName" required />
+
+            <label for="snippet">Tel No:</label>
+            <input type="text" id="fatherTel" name="fatherTel" required />
+          </div>
+
+          <div class="create-stud content">
+            <label for="title">Mother's Name:</label>
+            <input type="text" id="motherName" name="motherName" required />
+
+            <label for="snippet">Tel No:</label>
+            <input type="text" id="motherTel" name="motherTel" required />
+          </div>
+        </div>
+      </div>
+
+      <hr />
+      <div>
+        <h2 class="title">Emergency Contact Information</h2>
+        <div class="parents">
+          <div class="create-stud content">
+            <label for="title">Name:</label>
+            <input type="text" id="eciName" name="eciName" required />
+          </div>
+
+          <div class="create-stud content">
+            <label for="snippet">Relationship:</label>
+            <input type="text" id="eciRelation" name="eciRelation" required />
+          </div>
+
+          <div class="create-stud content">
+            <label for="snippet">Tel No:</label>
+            <input type="text" id="eciTel" name="eciTel" required />
+          </div>
+        </div>
+        <button>Submit</button>
+      </div>
+    </form>
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <%- include('../partials/nav.ejs') %>
+    <div class="students content" id="studentList">
+      <h2>All Students</h2>
+
+      <input type="text" id="filterInput" placeholder="Search Name" />
+
+      <% if(students.length > 0) { students.forEach(stud => { %>
+      <div class="outer-box">
+        <a class="single" href="/students/<%= stud._id %>">
+          <h3 class="title"><%= stud.studName %></h3>
+          <p class="snippet"><%= stud.studTel %></p>
+        </a>
+        <div class="inner-box">
+          <a class="delete" data-doc="<%= stud._id %>"
+            ><img src="/images/trashcan.svg" alt="delete icon"
+          /></a>
+          <a class="edit" href="/blogs/edit/<%= stud._id %>"
+            ><img src="/images/edit.svg" alt="edit icon"
+          /></a>
+        </div>
+      </div>
+      <% }) } else { %>
+      <p>There are no students to display...</p>
+      <% } %>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+  </body>
+  <script>
+    //get input element
+    let filterInput = document.getElementById("filterInput");
+
+    // get event listener
+    filterInput.addEventListener("keyup", filterNames);
+
+    function filterNames() {
+      //get value of input
+      let filterValue = document
+        .getElementById("filterInput")
+        .value.toUpperCase();
+      // get names ul
+      let list = document.getElementById("studentList");
+      //get items
+      let items = list.querySelectorAll("a.single");
+
+      //loop through collection item li
+      for (let i = 0; i < items.length; i++) {
+        let h3 = items[i].getElementsByTagName("h3")[0];
+        let p = items[i].getElementsByTagName("p")[0];
+        //if matched
+        if (h3.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
+          items[i].style.display = "";
+        } else {
+          items[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <%- include('../partials/nav.ejs') %>
+
+    <form action="/students" method="POST">
+      <h2 class="title">Student Information</h2>
+      <div class="student">
+        <div class="student-info">
+          <div class="left">
+            <p><b>Name:</b></p>
+            <p><b>Matric:</b></p>
+            <p><b>Tel No:</b></p>
+            <p><b>Gender:</b></p>
+            <p><b>Class:</b></p>
+          </div>
+          <div class="right">
+            <p><%= student.studName %></p>
+            <p><%= student.matricNum %></p>
+            <p><%= student.studTel %></p>
+            <p><%= student.studGender %></p>
+            <p><%= student.studClass %></p>
+          </div>
+        </div>
+
+        <div class="stud-picture">
+          <p style="margin-top: 20px">Profle Picture:</p>
+          <img
+            style="margin-top: 20px"
+            height="200"
+            width="150"
+            src="<%= student.studImagePath %>"
+          />
+        </div>
+      </div>
+
+      <hr />
+      <div>
+        <h2 class="title">Parents Information</h2>
+        <div class="parents">
+          <div class="parents-info">
+            <div class="left">
+              <p><b>Father's Name:</b></p>
+              <p><b>Mother's Contact:</b></p>
+            </div>
+            <div class="right">
+              <p><%= student.parents.fatherName %></p>
+              <p><%= student.parents.fatherTel %></p>
+            </div>
+          </div>
+
+          <div class="parents-info">
+            <div class="left">
+              <p><b>Mother's Name:</b></p>
+              <p><b>Mother's Contact:</b></p>
+            </div>
+            <div class="right">
+              <p><%= student.parents.motherName %></p>
+              <p><%= student.parents.motherTel %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+      <div>
+        <h2 class="title">Emergency Contact Information</h2>
+
+        <div class="parents">
+          <div class="parents-info">
+            <div class="left">
+              <p><b>Name:</b></p>
+              <p><b>Relationship:</b></p>
+              <p><b>Tel No:</b></p>
+            </div>
+            <div class="right">
+              <p><%= student.emergencyContact.eciName %></p>
+              <p><%= student.emergencyContact.eciRelation %></p>
+              <p><%= student.emergencyContact.eciTel %></p>
+            </div>
+          </div>
+          <div></div>
+        </div>
+      </div>
+    </form>
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>
